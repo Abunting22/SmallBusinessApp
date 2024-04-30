@@ -64,6 +64,7 @@ namespace SmallBusinessApp.Server
             builder.Services.AddScoped<IJwtGenerator, JwtGenerator>();
             builder.Services.AddScoped<Customer>();
             builder.Services.AddScoped<CustomerDto>();
+            builder.Services.AddScoped<LoginDto>();
             builder.Services.AddScoped<Product>();
             builder.Services.AddScoped<Appointment>();
             builder.Services.AddScoped<Payment>();
