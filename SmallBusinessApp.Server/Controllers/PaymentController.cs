@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 using SmallBusinessApp.Server.Interfaces;
 using SmallBusinessApp.Server.Model;
@@ -7,6 +8,7 @@ namespace SmallBusinessApp.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PaymentController(IPrimaryRepository<Payment> repository) : ControllerBase
     {
         [HttpGet("GetAll")]

@@ -1,5 +1,6 @@
 ﻿using SmallBusinessApp.Server.Interfaces;
 using SmallBusinessApp.Server.Model;
+using BCrypt;
 
 namespace SmallBusinessApp.Server.Services
 {
@@ -28,8 +29,16 @@ namespace SmallBusinessApp.Server.Services
             return result;
         }
 
-        public async Task<bool> AddNewCustomerRequest(Customer customer)
+        public async Task<bool> AddNewCustomerRequest(CustomerDto request)
         {
+            var customer = new Customer
+            {
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                PhoneNumber = request.PhoneNumber,
+                EmailAddress = request.EmailAddress,
+                HashedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password)
+            };
             var result = await repository.Add(customer);
             return result;
         }

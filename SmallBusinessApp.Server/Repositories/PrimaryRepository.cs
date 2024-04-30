@@ -87,9 +87,9 @@ namespace SmallBusinessApp.Server.Repositories
         {
             if (typeof(T) == typeof(Customer))
             {
-                var properties = string.Join(", ", typeof(T).GetProperties().Skip(1).Select(p => p.Name));
-                var values = string.Join(", ", typeof(T).GetProperties().Skip(1).Select(p => "@" + p.Name));
-                var parameter = string.Join(", ", string.Join(", ", typeof(T).GetProperties().Skip(1).Select(p => p.Name).Skip(1).Select(name => $"{name} = @{name}")));
+                var properties = string.Join(", ", typeof(T).GetProperties().Skip(2).Select(p => p.Name));
+                var values = string.Join(", ", typeof(T).GetProperties().Skip(2).Select(p => "@" + p.Name));
+                var parameter = string.Join(", ", string.Join(", ", typeof(T).GetProperties().Skip(2).Select(p => p.Name).Skip(1).Select(name => $"{name} = @{name}")));
                 return (properties, values, parameter);
             }
             else

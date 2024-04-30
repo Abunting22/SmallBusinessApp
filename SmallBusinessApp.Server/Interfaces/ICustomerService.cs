@@ -8,6 +8,6 @@ namespace SmallBusinessApp.Server.Interfaces
         public Task<Customer> GetCustomerByIdRequest(int id);
         public Task<bool> UpdateCustomerInfoRequest(Customer customer);
         public Task<bool> DeleteCustomerRequest(int id);
-        public Task<bool> AddNewCustomerRequest(Customer customer);
+        public Task<bool> AddNewCustomerRequest(CustomerDto request);
     }
 }
